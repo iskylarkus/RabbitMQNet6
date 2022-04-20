@@ -2,9 +2,9 @@
 
 namespace RabbitMQNet6.Watermark.Models
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
 
         }

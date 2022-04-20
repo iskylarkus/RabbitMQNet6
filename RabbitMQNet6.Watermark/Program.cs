@@ -8,7 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddSingleton(sp => new ConnectionFactory() { 
+builder.Services.AddSingleton(sp => new ConnectionFactory()
+{
     Uri = new Uri(builder.Configuration.GetConnectionString("RabbitMQ")),
     DispatchConsumersAsync = true
 });

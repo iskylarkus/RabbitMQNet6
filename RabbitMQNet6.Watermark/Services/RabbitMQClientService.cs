@@ -2,7 +2,7 @@
 
 namespace RabbitMQNet6.Watermark.Services
 {
-    public class RabbitMQClientService:IDisposable
+    public class RabbitMQClientService : IDisposable
     {
         private readonly ILogger<RabbitMQClientService> _logger;
         private readonly ConnectionFactory _connectionFactory;
@@ -22,7 +22,7 @@ namespace RabbitMQNet6.Watermark.Services
         {
             _connection = _connectionFactory.CreateConnection();
 
-            if (_channel is { IsOpen:true}) //if (_channel.IsOpen)
+            if (_channel is { IsOpen: true }) //if (_channel.IsOpen)
             {
                 return _channel;
             }
