@@ -54,7 +54,7 @@ namespace RabbitMQNet6.Watermark.BackgroundServices
 
                 using var graphic = Graphics.FromImage(img);
 
-                var font = new Font(FontFamily.GenericMonospace, 32, FontStyle.Bold, GraphicsUnit.Pixel);
+                var font = new Font(FontFamily.GenericMonospace, 40, FontStyle.Bold, GraphicsUnit.Pixel);
 
                 var txtSize = graphic.MeasureString(siteName, font);
 
@@ -75,9 +75,9 @@ namespace RabbitMQNet6.Watermark.BackgroundServices
 
                 _channel.BasicAck(@event.DeliveryTag, false);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                _logger.LogError(ex.Message);
             }
 
             return Task.CompletedTask;
