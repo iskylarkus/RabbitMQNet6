@@ -1,7 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using RabbitMQNet6.Watermark.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseInMemoryDatabase(databaseName: "ProductDB");
+});
 
 var app = builder.Build();
 
