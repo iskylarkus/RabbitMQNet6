@@ -41,4 +41,24 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+
+
+using (var scope = app.Services.CreateScope())
+{
+    var identityDbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+
+    identityDbContext.Database.Migrate();
+
+    if (!userManager.Users.Any())
+    {
+        userManager.CreateAsync(new IdentityUser() { UserName = "user1", Email = "user1@hotmail.com" }, "Password12*").Wait();
+        userManager.CreateAsync(new IdentityUser() { UserName = "user2", Email = "user2@hotmail.com" }, "Password12*").Wait();
+        userManager.CreateAsync(new IdentityUser() { UserName = "user3", Email = "user3@hotmail.com" }, "Password12*").Wait();
+        userManager.CreateAsync(new IdentityUser() { UserName = "user4", Email = "user4@hotmail.com" }, "Password12*").Wait();
+        userManager.CreateAsync(new IdentityUser() { UserName = "user5", Email = "user5@hotmail.com" }, "Password12*").Wait();
+    }
+}
+
 app.Run();
