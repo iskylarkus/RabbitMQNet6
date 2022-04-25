@@ -8,9 +8,9 @@ namespace RabbitMQNet6.Watermark.Services
         private readonly ConnectionFactory _connectionFactory;
         private IConnection _connection;
         private IModel _channel;
-        public static string ExchangeName = "direct-watermark-image";
-        public static string RouteKey = "route-watermark-image";
-        public static string QueueName = "queue-watermark-image";
+        public const string ExchangeName = "direct-watermark-image";
+        public const string RouteKey = "route-watermark-image";
+        public const string QueueName = "queue-watermark-image";
 
         public RabbitMQClientService(ConnectionFactory connectionFactory, ILogger<RabbitMQClientService> logger)
         {

@@ -8,9 +8,9 @@ namespace RabbitMQNet6.ExcelCreation.Services
         private readonly ConnectionFactory _connectionFactory;
         private IConnection _connection;
         private IModel _channel;
-        public static string ExchangeName = "direct-excel-file";
-        public static string RouteKey = "route-excel-file";
-        public static string QueueName = "queue-excel-file";
+        public const string ExchangeName = "direct-excel-file";
+        public const string RouteKey = "route-excel-file";
+        public const string QueueName = "queue-excel-file";
 
         public RabbitMQClientService(ConnectionFactory connectionFactory, ILogger<RabbitMQClientService> logger)
         {
