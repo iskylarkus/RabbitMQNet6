@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RabbitMQNet6.ExcelCreation.Models;
+using RabbitMQNet6.ExcelCreation.Services;
+using RabbitMQNet6.Shared;
 
 namespace RabbitMQNet6.ExcelCreation.Controllers
 {
@@ -10,11 +12,13 @@ namespace RabbitMQNet6.ExcelCreation.Controllers
     {
         private readonly AppDbContext _appDbContext;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly RabbitMQPublisher _rabbitMQPublisher;
 
-        public ProductController(AppDbContext appDbContext, UserManager<IdentityUser> userManager)
+        public ProductController(AppDbContext appDbContext, UserManager<IdentityUser> userManager, RabbitMQPublisher rabbitMQPublisher)
         {
             _appDbContext = appDbContext;
             _userManager = userManager;
+            _rabbitMQPublisher = rabbitMQPublisher;
         }
 
         [Authorize]
@@ -39,6 +43,8 @@ namespace RabbitMQNet6.ExcelCreation.Controllers
             await _appDbContext.UserFiles.AddAsync(userFile);
 
             await _appDbContext.SaveChangesAsync();
+
+            _rabbitMQPublisher.Publish(new CreatedExcelMessage() { FileId = userFile.Id, UserId = user.Id });
 
             TempData["StartCreatingExcel"] = true;
 

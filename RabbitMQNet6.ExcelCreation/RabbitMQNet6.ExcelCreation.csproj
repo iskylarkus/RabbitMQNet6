@@ -23,4 +23,8 @@
     <Folder Include="wwwroot\files\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RabbitMQNet6.Shared\RabbitMQNet6.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
