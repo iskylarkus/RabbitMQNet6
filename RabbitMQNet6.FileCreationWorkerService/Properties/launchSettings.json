@@ -1,0 +1,11 @@
+﻿{
+  "profiles": {
+    "RabbitMQNet6.FileCreationWorkerService": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
