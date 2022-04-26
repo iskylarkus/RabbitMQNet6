@@ -44,7 +44,7 @@ namespace RabbitMQNet6.ExcelCreation.Controllers
 
             await _appDbContext.SaveChangesAsync();
 
-            _rabbitMQPublisher.Publish(new CreatedExcelMessage() { FileId = userFile.Id, UserId = user.Id });
+            _rabbitMQPublisher.Publish(new CreatedExcelMessage() { FileId = userFile.Id });
 
             TempData["StartCreatingExcel"] = true;
 
