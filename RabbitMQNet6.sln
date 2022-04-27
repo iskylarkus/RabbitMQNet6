@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQNet6.Watermark", "R
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQNet6.ExcelCreation", "RabbitMQNet6.ExcelCreation\RabbitMQNet6.ExcelCreation.csproj", "{E3FDA007-13D4-4BF9-A332-340F599AB0FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQNet6.Shared", "RabbitMQNet6.Shared\RabbitMQNet6.Shared.csproj", "{E38D434E-7C87-4442-8904-71E8B58A282A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQNet6.Shared", "RabbitMQNet6.Shared\RabbitMQNet6.Shared.csproj", "{E38D434E-7C87-4442-8904-71E8B58A282A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQNet6.FileCreationWorkerService", "RabbitMQNet6.FileCreationWorkerService\RabbitMQNet6.FileCreationWorkerService.csproj", "{4EAEA194-1FE1-4CEC-B678-14F00DC8E3FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQNet6.FileCreationWorkerService", "RabbitMQNet6.FileCreationWorkerService\RabbitMQNet6.FileCreationWorkerService.csproj", "{4EAEA194-1FE1-4CEC-B678-14F00DC8E3FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

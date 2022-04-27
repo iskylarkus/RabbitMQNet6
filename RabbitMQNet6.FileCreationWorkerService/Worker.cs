@@ -40,6 +40,8 @@ namespace RabbitMQNet6.FileCreationWorkerService
         {
             var consumer = new AsyncEventingBasicConsumer(_channel);
 
+            _channel.BasicConsume(RabbitMQClientService.QueueName, false, consumer);
+
             consumer.Received += Consumer_Received;
 
             await Task.CompletedTask;
@@ -72,7 +74,7 @@ namespace RabbitMQNet6.FileCreationWorkerService
             multipartFormDataContent.Add(new ByteArrayContent(ms.ToArray()), "file", Guid.NewGuid().ToString()+".xlsx");
 
 
-            var baseUrl = $"https://localhost:44321/api/files?fileId={createdExcelMessage.FileId}";
+            var baseUrl = $"https://localhost:7064/api/files?fileId={createdExcelMessage.FileId}";
 
             using (var httpClient = new HttpClient())
             {
