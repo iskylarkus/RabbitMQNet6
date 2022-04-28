@@ -3,6 +3,28 @@
 }
 @model List<UserFile>
 
+@section Scripts
+{
+    <script>
+        $(document).ready(function() {
+
+            var startCreatingExcel = '@TempData["StartCreatingExcel"]';
+            
+            if (startCreatingExcel) {
+
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'Creation excel file is started. You will receive notification when finished',
+                  showConfirmButton: false,
+                  timer: 2500
+                });
+
+            }
+        });
+    </script>
+}
+
 <h1>Files</h1>
 
 <table class="table table-striped">

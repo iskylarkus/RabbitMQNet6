@@ -62,6 +62,46 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.4/signalr.min.js" integrity="sha512-grldNBeqlywsN9Niz0kz/qqcl3BY931AHO3ghT0yLMKvnu2YBC1iTnAQigzu3DS3Ve2NorQ1TXmKNCirj41GKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function(){
+            
+            var connection = new signalR.HubConnectionBuilder().withUrl("/MyHub").build();
+
+            start();
+
+            function start() {
+                connection.start().then().catch((err) => {
+                    console.log(err);
+                    setTimeout(() => start(), 2000);
+                });
+            }
+
+            connection.on("CompletedFile", () => {
+
+                console.log("creation excel file is done.");
+
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'Creation excel file is done.',
+                  showConfirmButton: true,
+                  confirmButtonText: "Go To Files"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location = "/product/files";
+                    }
+                });
+
+            });
+
+        });
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
