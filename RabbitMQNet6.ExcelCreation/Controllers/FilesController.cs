@@ -22,7 +22,7 @@ namespace RabbitMQNet6.ExcelCreation.Controllers
         [HttpPost]
         public async Task<IActionResult> Upload(IFormFile file, int fileId)
         {
-            if (file is not { Length: > 0})
+            if (file is not { Length: > 0 })
             {
                 return BadRequest();
             }

@@ -2,7 +2,7 @@
 
 namespace RabbitMQNet6.ExcelCreation.Hubs
 {
-    public class MyHub:Hub
+    public class MyHub : Hub
     {
     }
 }

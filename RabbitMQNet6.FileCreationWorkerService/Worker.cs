@@ -65,13 +65,13 @@ namespace RabbitMQNet6.FileCreationWorkerService
             ds.Tables.Add(GetTable("products"));
 
             wb.Worksheets.Add(ds);
-            
+
             wb.SaveAs(ms);
 
 
-            MultipartFormDataContent multipartFormDataContent = new ();
+            MultipartFormDataContent multipartFormDataContent = new();
 
-            multipartFormDataContent.Add(new ByteArrayContent(ms.ToArray()), "file", Guid.NewGuid().ToString()+".xlsx");
+            multipartFormDataContent.Add(new ByteArrayContent(ms.ToArray()), "file", Guid.NewGuid().ToString() + ".xlsx");
 
 
             var baseUrl = $"https://localhost:7064/api/files?fileId={createdExcelMessage.FileId}";
@@ -100,7 +100,7 @@ namespace RabbitMQNet6.FileCreationWorkerService
                 products = context.Products.ToList();
             }
 
-            DataTable table = new DataTable() { TableName = tableName};
+            DataTable table = new DataTable() { TableName = tableName };
             table.Columns.Add("Id", typeof(int));
             table.Columns.Add("Name", typeof(string));
             table.Columns.Add("Price", typeof(decimal));

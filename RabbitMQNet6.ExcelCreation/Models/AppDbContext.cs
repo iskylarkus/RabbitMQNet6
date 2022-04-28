@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace RabbitMQNet6.ExcelCreation.Models
 {
-    public class AppDbContext:IdentityDbContext
+    public class AppDbContext : IdentityDbContext
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {
